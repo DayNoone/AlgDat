@@ -1,18 +1,18 @@
 from sys import stdin
 def main():
 	stdin.readline(),stdin.readline()
-	l=0
+	level=0
 	d=dict()
-	s=stdin.readline().strip()
-	r=stdin.readline().strip()
-	for li in stdin:
-		c=li.split()
-		p=c.pop(0)
-		for i in c:
-			d[i]=p
-		while r in d:
-			r=d[r]
-			l+=1
-		if(r==s):
-			return l
+	start_node=stdin.readline().strip()
+	ratatosk_node=stdin.readline().strip()
+	for line in stdin:
+		children=line.split()
+		parent=children.pop(0)
+		for child in children:
+			d[child]=parent
+		while ratatosk_node in d:
+			ratatosk_node=d[ratatosk_node]
+			level+=1
+		if(ratatosk_node==start_node):
+			return level
 print(main())
